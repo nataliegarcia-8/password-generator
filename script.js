@@ -47,5 +47,5 @@ if(confirmSym === true)
 
   for (var i = 0; i < length; i++ ) {
     var thePassword = generate.charAt(Math.floor(Math.random() * generate[i]))
-
+  }
 }
