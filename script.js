@@ -1,6 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Assigning  Global Variables 
 var lower = "abcdefghijklmnopqrstuvwxyz";
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var num = "0123456789";
@@ -27,29 +28,35 @@ function generatePassword() {
 
   var length = prompt("How long would you like your password to be?");
 
+//assigning numerical value to length variable 
   length = parseInt(length);
 
+// Setting length range - confirm pop-ups for each character 
   if (length >= 8 && length <= 128) {
     var confirmLower = confirm("Do you want lowercase letters in your password?");
     var confirmUpper = confirm("Do you want uppercase letters in your password?");
     var confirmNum = confirm("Do you want numbers in your password?");
     var confirmSym = confirm("Do you want special characters in your password?");
-  } else {
-    var resume = confirm("Must be numerical value between 8 and 128, or exit")
+  } 
+  // setting pop up for incorrect length 
+  else {
+    var resume = confirm("You must choose a numerical value between 8 and 128! \n Cancel to exit.")
     if (resume) {
       return generatePassword();
     }
     return ''
   }
 
+  // setting pop up for no characters selected
   if (!confirmLower && !confirmUpper && !confirmNum && !confirmSym) {
-    var resume = confirm("Must pick atleast one option, or exit")
+    var resume = confirm("Must pick at least one character option! \n Cancel to exit.")
     if (resume) {
       return generatePassword();
     }
     return ''
   }
 
+// setting characters chosen to their matching variables
   if (confirmLower === true) {
     generate += lower
     password += returnChar(lower)
@@ -67,15 +74,16 @@ function generatePassword() {
     password += returnChar(sym)
   };
 
-
+//for loop to generate password
   for (var i = password.length; i < length; i++) {
     password += returnChar(generate);
   }
-
   return password;
 }
 
+// randomly assigning characters 
 function returnChar(str) {
   return str[Math.floor(Math.random() * str.length)]
 }
+
 
