@@ -77,6 +77,7 @@ function generatePassword() {
 //for loop to generate password
   for (var i = password.length; i < length; i++) {
     password += returnChar(generate);
+    password = shuffle(password);
   }
   return password;
 }
@@ -84,6 +85,17 @@ function generatePassword() {
 // randomly assigning characters 
 function returnChar(str) {
   return str[Math.floor(Math.random() * str.length)]
+}
+
+// shuffling string to prevent patterns
+
+function shuffle(password){
+  var arr = password.split("");
+  arr.sort(function() {
+    return 0.5 - Math.random();
+  });
+  password = arr.join("");
+  return password;
 }
 
 

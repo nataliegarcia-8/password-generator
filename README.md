@@ -1,7 +1,7 @@
 # password-generator
 Password Generator 
 
-Link: 
+Link: <a href="https://nataliegarcia-8.github.io/password-generator/"> Click to view Password Generator</a>
 
 
 Description: 
